@@ -1,0 +1,30 @@
+{
+    "jsc": {
+        "parser": {
+            "syntax": "typescript",
+            "tsx": true,
+            "dynamicImport": true
+        },
+        "target": "es2023",
+        "transform": {
+            "react": {
+                "runtime": "automatic",
+                "development": false,
+                "refresh": true
+            }
+        },
+        "minify": true
+    },
+    "module": {
+        "type": "es2023",
+        "lazy": true,
+        "strict": true,
+        "strictMode": true
+    },
+    "env": {
+        "targets": {
+            "browsers": [">0.2%", "not dead", "not op_mini all"]
+        },
+        "mode": "entry"
+    }
+}
