@@ -1,8 +1,8 @@
 {
     "compilerOptions": {
-        "target": "ES2020",
+        "target": "ES2023",
         "useDefineForClassFields": true,
-        "lib": ["ES2020", "DOM", "DOM.Iterable"],
+        "lib": ["ES2023", "DOM", "DOM.Iterable"],
         "module": "ESNext",
         "skipLibCheck": true,
 
@@ -18,8 +18,22 @@
         "strict": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
-        "noFallthroughCasesInSwitch": true
+        "noFallthroughCasesInSwitch": true,
+        "baseUrl": "./src",
+        "paths": {
+            "@components/*": ["app/web/components/*"],
+            "@screens/*": ["app/web/screens/*"],
+            "@routes/*": ["app/web/routes/*"],
+            "@assets/*": ["app/assets/*"],
+            "@styles/*": ["app/web/styles/*"],
+            "@constants/*": ["app/utils/constants/*"],
+            "@integrations/*": ["@clean/integrations/modules/*"],
+            "@enums/*": ["@clean/shared/domain/enums/*"],
+            "@interfaces/*": ["app/utils/@types/interfaces/*"],
+            "@functions/*": ["app/utils/functions/*"],
+            "@formatters/*": ["app/utils/formatters/*"]
+        }
     },
-    "include": ["src"],
+    "include": ["src", "src/vite-env.d.ts"],
     "references": [{ "path": "./tsconfig.node.json" }]
 }
