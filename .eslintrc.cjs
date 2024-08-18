@@ -1,6 +1,10 @@
 module.exports = {
     root: true,
-    env: { browser: true, es2023: true },
+    env: {
+        browser: true,
+        es2023: true,
+        jest: true
+    },
     extends: [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended-type-checked",
@@ -15,8 +19,12 @@ module.exports = {
     },
     overrides: [
         {
-            extends: ["plugin:@typescript-eslint/disable-type-checked"],
-            files: ["./**/*.js"]
+            extends: [
+                "plugin:@typescript-eslint/disable-type-checked",
+                "plugin:jest/recommended"
+            ],
+            plugins: ["jest"],
+            files: ["./**/*.js", "./**/*.ts", "./**/*.tsx", "tests/**/*"],
         }
     ],
     ignorePatterns: [
@@ -24,7 +32,8 @@ module.exports = {
         ".eslintrc.cjs",
         "iac",
         ".github/",
-        "src/vite-env.d.ts"
+        "src/vite-env.d.ts",
+        "__tests__"
     ],
     parser: "@typescript-eslint/parser",
     plugins: ["react", "react-refresh"],
