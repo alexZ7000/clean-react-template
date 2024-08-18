@@ -1,7 +1,7 @@
 <h1 align="center"> React + TypeScript + SWC + Vite + Tailwind + Eslint + Prettier + Husky + Jest + Testing Library</h1>
 <br>
 
-< align="center">
+<p align="center">
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" align="center" width="80" height="80"/>
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" align="center" width="80" height="80"/>
 <img src="https://swc.rs/logo.png" alt="swc" align="center" width="120" height="80"/>
