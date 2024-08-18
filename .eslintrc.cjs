@@ -24,7 +24,7 @@ module.exports = {
                 "plugin:jest/recommended"
             ],
             plugins: ["jest"],
-            files: ["./**/*.js", "./**/*.ts", "./**/*.tsx", "tests/**/*"],
+            files: ["./**/*.js", "./**/*.ts", "./**/*.tsx", "tests/**/*"]
         }
     ],
     ignorePatterns: [
