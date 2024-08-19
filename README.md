@@ -21,3 +21,5 @@ In root folder run this command
 ```node
 npm install
 ```
+
+Template made in NodeJS: 20.11.0
