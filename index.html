@@ -1,13 +1,68 @@
 <!doctype html>
 <html lang="en">
-    <head>
+    <head id="link-by-user-theme">
         <meta charset="UTF-8" />
         <link rel="icon" type="image/svg+xml" href="/vite.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Clean React Template</title>
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="
+                      default-src 'self';
+                      script-src 'self';
+                      style-src 'self' 'unsafe-inline';
+                      img-src 'self' data:;
+                      font-src 'self';
+                      connect-src 'self' http://localhost:8080 http://localhost:5173/ http://localhost:4173/ https://mazca.com.br;
+                      frame-src 'none';
+                      object-src 'none';
+            "
+        />
+        <style>
+            {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(20, 20, 20, 0.95);
+                color: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                z-index: 9999;
+                font-family: Arial, sans-serif;
+            }
+            .noscript-content {
+                max-width: 600px;
+                padding: 2rem;
+            }
+            .noscript-content h1 {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+            .noscript-content p {
+                font-size: 1.2rem;
+                line-height: 1.6;
+            }
+        </style>
     </head>
     <body class="antialiased">
         <div id="root"></div>
+        <noscript>
+            <div class="noscript-overlay">
+                <div class="noscript-content">
+                    <h1>JavaScript Desabilitado</h1>
+                    <p>
+                        Para que o site da NovaRutra funcione corretamente, é
+                        essencial que o JavaScript esteja habilitado no seu
+                        navegador. Por favor, ative o JavaScript e recarregue a
+                        página.
+                    </p>
+                </div>
+            </div>
+        </noscript>
         <script type="module" src="./src/main.tsx"></script>
     </body>
 </html>

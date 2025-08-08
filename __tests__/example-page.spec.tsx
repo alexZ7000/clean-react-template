@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import ExamplePage from "../src/app/web/screens/ExamplePage";
+import ExamplePage from "../src/app/web/pages/ExamplePage";
 
 describe("ExamplePage", () => {
     it("should render correctly", () => {

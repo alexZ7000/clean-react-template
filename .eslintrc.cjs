@@ -2,7 +2,7 @@ module.exports = {
     root: true,
     env: {
         browser: true,
-        es2023: true,
+        es2024: true,
         jest: true
     },
     extends: [

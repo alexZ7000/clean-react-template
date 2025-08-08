@@ -22,4 +22,11 @@ In root folder run this command
 npm install
 ```
 
-Template made in NodeJS: 20.11.0
+Template made in NodeJS: 22.17.0
+
+If you have problems with Husky or doing commits in general, you can run the
+command below to remove the hooks:
+
+```bash
+git config --local --unset-all core.hooksPath
+```

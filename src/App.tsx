@@ -1,5 +1,12 @@
-import AppRoutes from "@routes/index";
+import ToasterContainer from "@components/ToasterContainer.tsx";
+import { BrowserRouter } from "react-router-dom";
+import AppRoutes from "@router/index.tsx";
 
 export default function App() {
-    return <AppRoutes></AppRoutes>;
+    return (
+        <BrowserRouter>
+            <ToasterContainer />
+            <AppRoutes />
+        </BrowserRouter>
+    );
 }

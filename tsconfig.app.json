@@ -1,8 +1,8 @@
 {
     "compilerOptions": {
-        "target": "ES2023",
+        "target": "ES2024",
         "useDefineForClassFields": true,
-        "lib": ["ES2023", "DOM", "DOM.Iterable"],
+        "lib": ["ES2024", "DOM", "DOM.Iterable"],
         "module": "ESNext",
         "skipLibCheck": true,
 
@@ -21,17 +21,17 @@
         "noFallthroughCasesInSwitch": true,
         "baseUrl": "./src",
         "paths": {
-            "@components/*": ["app/web/components/*"],
-            "@screens/*": ["app/web/screens/*"],
-            "@routes/*": ["app/web/routes/*"],
             "@assets/*": ["app/assets/*"],
+            "@components/*": ["app/web/components/*"],
             "@styles/*": ["app/web/styles/*"],
-            "@constants/*": ["app/utils/constants/*"],
-            "@integrations/*": ["@clean/integrations/modules/*"],
-            "@enums/*": ["@clean/shared/domain/enums/*"],
-            "@interfaces/*": ["app/utils/@types/interfaces/*"],
-            "@functions/*": ["app/utils/functions/*"],
-            "@formatters/*": ["app/utils/formatters/*"]
+            "@pages/*": ["app/web/pages/*"],
+            "@router/*": ["app/web/router/*"],
+            "@hooks/*": ["app/utils/hooks/*"],
+            "@validation/*": ["app/utils/validation/*"],
+            "@interfaces/*": ["api/shared/interfaces/*"],
+            "@integrations/*": ["api/integrations/modules/*"],
+            "@stores/*": ["api/integration/stores/*"],
+            "@enums/*": ["api/shared/enums/*"]
         }
     },
     "include": ["src", "src/vite-env.d.ts"],
