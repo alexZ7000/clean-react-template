@@ -1,7 +1,18 @@
 {
-    "files": [],
-    "references": [
-        { "path": "./tsconfig.app.json" },
-        { "path": "./tsconfig.node.json" }
-    ]
+    "compilerOptions": {
+        "target": "ES2024",
+        "lib": ["ES2024", "DOM", "DOM.Iterable"],
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "jsx": "react-jsx",
+        "types": ["bun"],
+        "strict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noFallthroughCasesInSwitch": true,
+        "isolatedModules": true,
+        "skipLibCheck": true,
+        "noEmit": true
+    },
+    "include": ["src", "__tests__", "vite.config.ts", "test-setup.ts"]
 }

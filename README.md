@@ -1,32 +1,46 @@
-<h1 align="center"> React + TypeScript + SWC + Vite + Tailwind + Eslint + Prettier + Husky + Jest + Testing Library</h1>
-<br>
+# Clean React Template
 
-<p align="center">
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" align="center" width="80" height="80"/>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" align="center" width="80" height="80"/>
-<img src="https://swc.rs/logo.png" alt="swc" align="center" width="120" height="80"/>
-<img src="https://github.com/alexZ7000/UsinaEcoCultural/assets/78627928/b82095b6-48ad-42c2-90a3-a2d0ea890da1" alt="vite" align="center" width="80" height="80"/>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/1024px-Tailwind_CSS_Logo.svg.png?20230715030042" alt="tailwind" align="center" width="75" height="60" />
-<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmiguelmachado.dev%2Fassets%2Fimg%2F1_3adbbrn3gotbz72xqfo96g.png&f=1&nofb=1&ipt=815bdc1a92129a989194fc10b59209968b7cb74bd6273ab809a219462fffe4e8&ipo=images" alt="ESLint" align="center" width="120" height="80"/>
-<img src="https://prettier.io/icon.png" alt="Prettier" align="center" width="80" height="80"/>
-🐶
-<img src="https://cdn.freebiesupply.com/logos/large/2x/jest-logo-png-transparent.png" alt="jest" width="80" />
-<img src="https://seeklogo.com/images/T/testing-library-logo-FFB8C5C0B6-seeklogo.com.png?v=637852764070000000" alt="Testing Library" width="80" /></p>
+A small React starter that shows Clean Architecture with one working task feature. It uses React, TypeScript, Vite, Tailwind CSS, Bun, and Biome.
 
-This template provides a minimal setup to get React working in Vite with HMR
-with ESLint/PRETTIER rules, and Husky to automate the process.
+## Start
 
-In root folder run this command
+Requires Bun 1.4.2 or newer.
 
-```node
-npm install
+```sh
+bun install --frozen-lockfile
+bun run dev
 ```
 
-Template made in NodeJS: 22.17.0
+Other checks:
 
-If you have problems with Husky or doing commits in general, you can run the
-command below to remove the hooks:
-
-```bash
-git config --local --unset-all core.hooksPath
+```sh
+bun run typecheck
+bun run lint
+bun run test
+bun run build
+bun run audit
 ```
+
+The task list uses an in-memory repository, so tasks reset when the page reloads. This keeps the example focused on the architecture boundary.
+
+## Architecture
+
+```text
+src/
+  app/                         Composition root and routing
+  features/tasks/
+    domain/                    Task model and pure business rules
+    application/               Use cases and repository port
+    infrastructure/            In-memory repository adapter
+    presentation/              React page
+```
+
+Dependencies point inward: presentation and infrastructure may import application and domain; application may import domain; domain imports none of the other layers. The composition root selects the concrete repository and ID generator. To use another synchronous data source, implement `TaskRepository` in `infrastructure/` and replace the adapter in `app/composition.ts`. An asynchronous API would require an asynchronous port and use case while keeping the same dependency direction.
+
+The example covers title validation, task creation, listing, and a React form. Its tests exercise both the use case and the page.
+
+For deployment, configure a Content Security Policy in the hosting server's response headers for the actual host and connected services. The starter HTML does not embed a host-specific policy, so Vite's development server and hot reload can use their configured port.
+
+## Security note
+
+`bun run audit` checks the resolved dependency tree. On 2026-11-18, the npm advisory feed still reports `GHSA-fc5q-39xc-vjpf` for Vite's transitive `picomatch`, although [GitHub withdrew that advisory](https://github.com/advisories/GHSA-fc5q-39xc-vjpf) on the same date. The raw audit output is left visible so new advisories are not hidden.
